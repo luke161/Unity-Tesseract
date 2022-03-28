@@ -6,20 +6,15 @@ using UnityEditor;
 public class PlaneTesseract : MonoBehaviour
 {
     MeshFilter[] meshFilters;
-    Transform viewPoint;
     [SerializeField, Range(0, 360)]
     public float rotationXY, rotationYZ, rotationZX, rotationXW, rotationYW, rotationZW;
+    public Transform viewPoint;
 
 
 
     void Awake()
     {
-        Camera cam = Camera.main;
-        viewPoint = cam.transform;
-        print(viewPoint);
-
         meshFilters = new MeshFilter[UtilsGeom4D.kTesseractPlanes.GetLength(0)];
-        print(meshFilters.GetLength(0));
         int[] tris = { 0, 1, 3, 3, 1, 2 };
 
         Vector3[] normals = new Vector3[4] {
